@@ -10,7 +10,7 @@ func _ready():
 	set_process(true)
 
 func _process(delta):
-	var sprite = self.get_node("Sprite")
+	var sprite = self.get_node("BuddySprite")
 	
 	if paralyzed != 0 : 
 		sprite.start_idle()

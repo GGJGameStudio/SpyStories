@@ -6,7 +6,8 @@ enum Action {
 	WalkingDown,
 	WalkingRight,
 	WalkingLeft,
-	Acting
+	Acting,
+	Paralyzed
 }
 
 const medium = sqrt(2)/2
@@ -52,6 +53,10 @@ func start_acting():
 		elif last_move == Action.WalkingLeft:
 			sprite.set_animation("action_left")
 		last_move = Action.Acting
+
+func stopped():
+	sprite.set_animation(null)
+	last_move = Action.Paralyzed
 
 func move(direction, delta):
 	if last_move != Action.Acting:
