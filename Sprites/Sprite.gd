@@ -22,6 +22,7 @@ var sprite
 func _ready():
 	var randomSprite = randi() % templatedSprites.size()
 	sprite = templatedSprites[randomSprite].instance()
+	sprite.set_scale(Vector2(0.5, 0.5))
 	add_child(sprite)
 	
 	set_process(true)
@@ -30,7 +31,7 @@ func _process(delta):
 	if last_move == Action.Acting:
 		acting_since += delta
 	
-	if acting_since > 1:
+	if acting_since > 0.5:
 		last_move = Action.Idle
 		acting_since = 0
 		self.start_idle()
@@ -42,7 +43,14 @@ func start_idle():
 
 func start_acting():
 	if last_move != Action.Acting:
-		sprite.set_animation("action")
+		if last_move == Action.WalkingUp:
+			sprite.set_animation("action_back")
+		elif last_move == Action.WalkingDown || last_move == Action.Idle:
+			sprite.set_animation("action_front")
+		elif last_move == Action.WalkingRight:
+			sprite.set_animation("action_right")
+		elif last_move == Action.WalkingLeft:
+			sprite.set_animation("action_left")
 		last_move = Action.Acting
 
 func move(direction, delta):
@@ -61,11 +69,11 @@ func move(direction, delta):
 		if current_move != last_move:
 			if current_move == Action.WalkingUp:
 				sprite.set_animation("walk_up")
-			if current_move == Action.WalkingDown:
+			elif current_move == Action.WalkingDown:
 				sprite.set_animation("walk_down")
-			if current_move == Action.WalkingRight:
+			elif current_move == Action.WalkingRight:
 				sprite.set_animation("walk_right")
-			if current_move == Action.WalkingLeft:
+			elif current_move == Action.WalkingLeft:
 				sprite.set_animation("walk_left")
 		
 		var current_pos = self.get_global_pos()

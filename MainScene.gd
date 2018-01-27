@@ -50,7 +50,8 @@ func _ready():
 	get_node("CalmTheme").set_loop(true)
 	get_node("CalmTheme").play()
 	
-	get_node("Train/AnimatedSprite").play()
+	get_node("Train1/AnimatedSprite").play()
+	get_node("Train2/AnimatedSprite").play()
 	
 	set_process(true)
 
