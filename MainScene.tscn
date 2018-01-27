@@ -1,12 +1,13 @@
-[gd_scene load_steps=8 format=1]
+[gd_scene load_steps=9 format=1]
 
 [ext_resource path="res://MainScene.gd" type="Script" id=1]
 [ext_resource path="res://TrainStation/MapTrain.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Train/Train.tscn" type="PackedScene" id=3]
-[ext_resource path="res://PJ/PJ.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Vibrator/SpyVibrator.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Assets/train_mission.ogg" type="AudioStream" id=6]
-[ext_resource path="res://Transmission/Transmission.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Spawn.gd" type="Script" id=4]
+[ext_resource path="res://PJ/PJ.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Transmission/Transmission.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Vibrator/SpyVibrator.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Assets/train_mission.ogg" type="AudioStream" id=8]
 
 [node name="MainScene" type="Node"]
 
@@ -22,27 +23,34 @@ transform/pos = Vector2( 963.388, 121.073 )
 
 transform/pos = Vector2( 964.749, 284.29 )
 
-[node name="Alice" parent="." instance=ExtResource( 4 )]
+[node name="YSort" type="YSort" parent="."]
 
-transform/pos = Vector2( 193.173, 278.877 )
+sort/enabled = true
+script/script = ExtResource( 4 )
 
-[node name="Charlie" parent="." instance=ExtResource( 4 )]
-
-transform/pos = Vector2( 734.602, 363.22 )
-
-[node name="Bob" parent="." instance=ExtResource( 4 )]
-
-transform/pos = Vector2( 338.733, 446.203 )
-
-[node name="Erin" parent="." instance=ExtResource( 4 )]
+[node name="Erin" parent="YSort" instance=ExtResource( 5 )]
 
 transform/pos = Vector2( 620.33, 92.5054 )
 
-[node name="SpyVibrator" parent="." instance=ExtResource( 5 )]
+[node name="Bob" parent="YSort" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 338.733, 446.203 )
+
+[node name="Charlie" parent="YSort" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 734.602, 363.22 )
+
+[node name="Alice" parent="YSort" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 193.173, 278.877 )
+
+[node name="Transmission" parent="." instance=ExtResource( 6 )]
+
+[node name="SpyVibrator" parent="." instance=ExtResource( 7 )]
 
 [node name="CalmTheme" type="StreamPlayer" parent="."]
 
-stream/stream = ExtResource( 6 )
+stream/stream = ExtResource( 8 )
 stream/play = false
 stream/loop = false
 stream/volume_db = 0.0
@@ -50,7 +58,5 @@ stream/autoplay = false
 stream/paused = false
 stream/loop_restart_time = 0.0
 stream/buffering_ms = 500
-
-[node name="Transmission" parent="." instance=ExtResource( 7 )]
 
 

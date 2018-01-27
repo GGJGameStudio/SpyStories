@@ -2,7 +2,7 @@ extends Node2D
 
 var controller
 var joystick_side
-var paralyzed = 0
+var paralyzed = false
 var timer = 0
 var deadzone = 0.25
 
@@ -12,14 +12,14 @@ func _ready():
 func _process(delta):
 	var sprite = self.get_node("BuddySprite")
 	
-	if paralyzed != 0 : 
+	if paralyzed == true : 
 		sprite.start_idle()
 		timer+=delta
 		if timer > 2 :
-			paralyzed = 0
+			paralyzed = false
 			timer = 0
 	
-	if paralyzed == 0 :
+	if paralyzed == false :
 		if joystick_side == 0 && Input.is_joy_button_pressed(controller, 12) || joystick_side == 1 && Input.is_joy_button_pressed(controller, 3):
 			sprite.start_acting()
 		
