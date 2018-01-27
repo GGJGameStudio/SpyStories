@@ -63,7 +63,7 @@ script/script = ExtResource( 1 )
 transform/scale = Vector2( 0.2, 0.2 )
 frames = SubResource( 1 )
 animation = "idle"
-frame = 9
+frame = 7
 playing = true
 
 
