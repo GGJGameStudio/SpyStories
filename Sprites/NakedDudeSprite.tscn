@@ -92,7 +92,7 @@ animations = [ {
 
 frames = SubResource( 1 )
 animation = "walk_up"
-frame = 2
+frame = 1
 playing = true
 
 

@@ -6,8 +6,7 @@ enum Action {
 	WalkingDown,
 	WalkingRight,
 	WalkingLeft,
-	Acting,
-	Paralyzed
+	Acting
 }
 
 const medium = sqrt(2)/2
@@ -17,6 +16,7 @@ var templatedSprites = [load("res://Sprites/NakedDudeSprite.tscn")]
 var last_move = Action.Idle
 var acting_since = 0
 var velocity = 50
+
 var sprite
 
 func _ready():
@@ -36,16 +36,6 @@ func _process(delta):
 		acting_since = 0
 		self.start_idle()
 
-func set_is_running(is_running):
-	var frames = sprite.frames
-	
-	frames.set_animation_speed("walk_up", 8 if is_running else 4)
-	frames.set_animation_speed("walk_down", 8 if is_running else 4)
-	frames.set_animation_speed("walk_left", 8 if is_running else 4)
-	frames.set_animation_speed("walk_right", 8 if is_running else 4)
-	
-	velocity = 100 if is_running else 50
-
 func start_idle():
 	if last_move != Action.Acting:
 		sprite.set_animation("idle")
@@ -62,10 +52,6 @@ func start_acting():
 		elif last_move == Action.WalkingLeft:
 			sprite.set_animation("action_left")
 		last_move = Action.Acting
-
-func stopped():
-	sprite.set_animation(null)
-	last_move = Action.Paralyzed
 
 func move(direction, delta):
 	if last_move != Action.Acting:
