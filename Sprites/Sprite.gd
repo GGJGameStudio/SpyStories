@@ -1,56 +1,74 @@
 extends Node2D
 
-var acting = false
-var walking = false
+enum Action {
+	Idle,
+	WalkingUp,
+	WalkingDown,
+	WalkingRight,
+	WalkingLeft,
+	Acting
+}
 
+const medium = sqrt(2)/2
+
+var templatedSprites = [load("res://Sprites/NakedDudeSprite.tscn")]
+
+var last_move = Action.Idle
 var acting_since = 0
-
 var velocity = 50
-var last_direction = Vector2()
 
-onready var sprite = get_node("AnimatedSprite")
+var sprite
 
 func _ready():
+	var randomSprite = randi() % templatedSprites.size()
+	sprite = templatedSprites[randomSprite].instance()
+	add_child(sprite)
+	
 	set_process(true)
 
 func _process(delta):
-	if acting:
+	if last_move == Action.Acting:
 		acting_since += delta
 	
 	if acting_since > 1:
-		acting = false
+		last_move = Action.Idle
 		acting_since = 0
 		self.start_idle()
 
 func start_idle():
-	if !acting:
+	if last_move != Action.Acting:
 		sprite.set_animation("idle")
-		walking = false
+		last_move = Action.Idle
 
 func start_acting():
-	if !acting:
+	if last_move != Action.Acting:
 		sprite.set_animation("action")
-		acting = true
-		walking = false
+		last_move = Action.Acting
 
 func move(direction, delta):
-	if !acting:
-		var sprite = get_node("AnimatedSprite")
+	if last_move != Action.Acting:
+		var current_move
 		
-		if !walking:
-			sprite.set_animation("walk")
-			walking = true
+		if abs(direction.x) < medium && direction.y < 0:
+			current_move = Action.WalkingUp
+		elif abs(direction.x) < medium && direction.y > 0:
+			current_move = Action.WalkingDown
+		elif abs(direction.x) >= medium && direction.x > 0:
+			current_move = Action.WalkingRight
+		elif abs(direction.x) >= medium && direction.x < 0:
+			current_move = Action.WalkingLeft
+	
+		if current_move != last_move:
+			if current_move == Action.WalkingUp:
+				sprite.set_animation("walk_up")
+			if current_move == Action.WalkingDown:
+				sprite.set_animation("walk_down")
+			if current_move == Action.WalkingRight:
+				sprite.set_animation("walk_right")
+			if current_move == Action.WalkingLeft:
+				sprite.set_animation("walk_left")
 		
 		var current_pos = self.get_global_pos()
 		get_parent().set_pos(current_pos + direction * velocity * delta)
 		
-		var scale = self.get_scale()
-		
-		if direction.x < 0:
-			scale.x = -1
-		elif direction.x > 0:
-			scale.x = 1
-		
-		self.set_scale(scale)
-		
-		last_direction = direction
+		last_move = current_move

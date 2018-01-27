@@ -47,6 +47,9 @@ func _ready():
 	transmission.cia = [alice, bob]
 	transmission.kgb = [charlie, erin]
 	
+	get_node("CalmTheme").set_loop(true)
+	get_node("CalmTheme").play()
+	
 	set_process(true)
 
 func _process(delta):
