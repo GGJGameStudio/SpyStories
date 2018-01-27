@@ -39,7 +39,7 @@ func _ready():
 
 func _process(delta):
 	_calc_distAliceBob()
-	#_calc_distBobPackage()
+	_calc_distBobPackage()
 	loopAB += delta
 	loopBP += delta
 	
@@ -50,10 +50,10 @@ func _process(delta):
 		loopAB = 0
 	
 	if loopBP > 6 && loopBP <= 6.5 :
-		#Input.start_joy_vibration(1, 1-distBobPackage, 0)
+		Input.start_joy_vibration(1, 1-distBobPackage, 0)
 		loopBP = 0
 	elif loopBP > 6.5 :
-		#Input.stop_joy_vibration(1)
+		Input.stop_joy_vibration(1)
 		loopBP = 0
 		
 	if alice.is_a_parent_of(package) && distAliceBob < 0.1 && alice.acting :
@@ -72,11 +72,11 @@ func _calc_distAliceBob():
 	else :
 		distAliceBob = dist/300
 
-#func _calc_distBobPackage():
-#	var bobPos = get_node("Bob").get_global_pos()
-#	var packagePos = get_node("Package").get_global_pos()
-#	var dist = bobPos.distAnce_to(packagePos)
-#	if dist >= 100 : 
-#		distBobPackage = 1
-#	else :
-#		distBobPackage = dist/100
+func _calc_distBobPackage():
+	var bobPos = bob.get_global_pos()
+	var packagePos = package.get_global_pos()
+	var dist = bobPos.distance_to(packagePos)
+	if dist >= 100 : 
+		distBobPackage = 1
+	else :
+		distBobPackage = dist/100
