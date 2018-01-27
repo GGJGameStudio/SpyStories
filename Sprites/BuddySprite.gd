@@ -20,6 +20,7 @@ var velocity = 50
 var sprite
 
 func _ready():
+	randomize()
 	var randomSprite = randi() % templatedSprites.size()
 	sprite = templatedSprites[randomSprite].instance()
 	sprite.set_scale(Vector2(0.5, 0.5))
