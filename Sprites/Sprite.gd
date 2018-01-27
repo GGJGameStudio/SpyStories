@@ -41,8 +41,8 @@ func move(direction, delta):
 			sprite.set_animation("walk")
 			walking = true
 		
-		var current_pos = self.get_pos()
-		self.set_pos(current_pos + direction * velocity * delta)
+		var current_pos = self.get_global_pos()
+		get_parent().set_pos(current_pos + direction * velocity * delta)
 		
 		var scale = self.get_scale()
 		

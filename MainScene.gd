@@ -38,45 +38,43 @@ func _ready():
 
 
 func _process(delta):
-	_calc_distAliceBob()
-	_calc_distBobPackage()
+	
 	loopAB += delta
 	loopBP += delta
 	
 	if loopAB > 5 && loopAB <= 5.5 :
+		_calc_distAliceBob()
 		Input.start_joy_vibration(0, distAliceBob, 0)
 	elif loopAB > 5.5 :
 		Input.stop_joy_vibration(0)
 		loopAB = 0
 	
 	if loopBP > 6 && loopBP <= 6.5 :
+		_calc_distBobPackage()
 		Input.start_joy_vibration(1, 1-distBobPackage, 0)
-		loopBP = 0
 	elif loopBP > 6.5 :
 		Input.stop_joy_vibration(1)
 		loopBP = 0
 		
-	if alice.is_a_parent_of(package) && distAliceBob < 0.1 && alice.acting :
+	if alice.is_a_parent_of(package) && distAliceBob < 0.1 && alice.get_node("Sprite").acting :
 		alice.remove_child(package)
 		bob.add_child(package)
 		Input.start_joy_vibration(1, 0, 1, 1)
 		
+	var d = String(bob.get_pos())
+	get_node("Distance").set_text(d)
 
 
 func _calc_distAliceBob():
-	var alicePos = alice.get_global_pos()
-	var bobPos = bob.get_global_pos()
-	var dist = alicePos.distance_to(bobPos)
+	var dist = alice.get_pos().distance_to(bob.get_pos())
 	if dist >= 300 : 
 		distAliceBob = 1
 	else :
 		distAliceBob = dist/300
 
 func _calc_distBobPackage():
-	var bobPos = bob.get_global_pos()
-	var packagePos = package.get_global_pos()
-	var dist = bobPos.distance_to(packagePos)
-	if dist >= 100 : 
+	var dist = bob.get_pos().distance_to(package.get_pos())
+	if dist >= 300 : 
 		distBobPackage = 1
 	else :
-		distBobPackage = dist/100
+		distBobPackage = dist/300
