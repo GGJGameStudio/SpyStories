@@ -26,7 +26,7 @@ transform/pos = Vector2( 963.388, 121.073 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Train1"]
 
-transform/pos = Vector2( -97.9891, -2.21606 )
+transform/pos = Vector2( -101.313, 2.21606 )
 transform/scale = Vector2( 2.63332, 1 )
 shape = SubResource( 1 )
 trigger = false
