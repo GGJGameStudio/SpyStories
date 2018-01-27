@@ -12,6 +12,11 @@ func _ready():
 func _process(delta):
 	var sprite = self.get_node("BuddySprite")
 	
+	if joystick_side == 0 && Input.is_joy_button_pressed(controller, 6) || joystick_side == 1 && Input.is_joy_button_pressed(controller, 7):
+		sprite.set_is_running(true)
+	else:
+		sprite.set_is_running(false)
+	
 	if paralyzed != 0 : 
 		sprite.start_idle()
 		timer+=delta
