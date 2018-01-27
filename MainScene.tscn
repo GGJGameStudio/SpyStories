@@ -23,4 +23,20 @@ transform/pos = Vector2( 338.733, 446.203 )
 
 transform/pos = Vector2( 620.33, 92.5054 )
 
+[node name="Distance" type="Label" parent="."]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 82.0
+margin/top = 52.0
+margin/right = 174.0
+margin/bottom = 108.0
+text = "Distance
+"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
 
