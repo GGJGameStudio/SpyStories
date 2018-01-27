@@ -38,6 +38,9 @@ func _ready():
 	spy_vibrator.charlie = charlie
 	spy_vibrator.package = package
 	
+	get_node("CalmTheme").set_loop(true)
+	get_node("CalmTheme").play()
+	
 	set_process(true)
 
 func _process(delta):
