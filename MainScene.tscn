@@ -4,7 +4,6 @@
 [ext_resource path="res://PJ/PJ.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Vibrator/SpyVibrator.tscn" type="PackedScene" id=3]
 
-
 [node name="MainScene" type="Node"]
 
 script/script = ExtResource( 1 )
