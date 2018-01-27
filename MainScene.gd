@@ -61,19 +61,19 @@ func _process(delta):
 		bob.add_child(package)
 		Input.start_joy_vibration(1, 0, 1, 1)
 		
-	var d = String(bob.get_pos())
+	var d = String(distBobPackage)
 	get_node("Distance").set_text(d)
 
 
 func _calc_distAliceBob():
-	var dist = alice.get_pos().distance_to(bob.get_pos())
+	var dist = alice.get_global_pos().distance_to(bob.get_global_pos())
 	if dist >= 300 : 
 		distAliceBob = 1
 	else :
 		distAliceBob = dist/300
 
 func _calc_distBobPackage():
-	var dist = bob.get_pos().distance_to(package.get_pos())
+	var dist = bob.get_global_pos().distance_to(package.get_global_pos())
 	if dist >= 300 : 
 		distBobPackage = 1
 	else :
