@@ -12,7 +12,7 @@ enum Action {
 
 const medium = sqrt(2)/2
 
-var templatedSprites = [load("res://Sprites/NakedDudeSprite.tscn")]
+var templatedSprites = [load("res://Sprites/NakedDudeSprite.tscn"),load("res://Sprites/Guy_1.tscn")]
 
 var last_move = Action.Idle
 var acting_since = 0
