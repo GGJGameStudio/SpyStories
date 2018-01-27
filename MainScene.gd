@@ -2,10 +2,10 @@ extends Node
 
 var packageScene = load("res://Package/Package.tscn")
 
-onready var alice = get_node("YSort/Alice")
-onready var charlie = get_node("YSort/Charlie")
-onready var bob = get_node("YSort/Bob")
-onready var erin = get_node("YSort/Erin")
+onready var alice = get_node("YSort_Spawn/Alice")
+onready var charlie = get_node("YSort_Spawn/Charlie")
+onready var bob = get_node("YSort_Spawn/Bob")
+onready var erin = get_node("YSort_Spawn/Erin")
 
 onready var package = packageScene.instance()
 

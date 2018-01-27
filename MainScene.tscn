@@ -23,24 +23,24 @@ transform/pos = Vector2( 963.388, 121.073 )
 
 transform/pos = Vector2( 964.749, 284.29 )
 
-[node name="YSort" type="YSort" parent="."]
+[node name="YSort_Spawn" type="YSort" parent="."]
 
 sort/enabled = true
 script/script = ExtResource( 4 )
 
-[node name="Erin" parent="YSort" instance=ExtResource( 5 )]
+[node name="Erin" parent="YSort_Spawn" instance=ExtResource( 5 )]
 
 transform/pos = Vector2( 620.33, 92.5054 )
 
-[node name="Bob" parent="YSort" instance=ExtResource( 5 )]
+[node name="Bob" parent="YSort_Spawn" instance=ExtResource( 5 )]
 
 transform/pos = Vector2( 338.733, 446.203 )
 
-[node name="Charlie" parent="YSort" instance=ExtResource( 5 )]
+[node name="Charlie" parent="YSort_Spawn" instance=ExtResource( 5 )]
 
 transform/pos = Vector2( 734.602, 363.22 )
 
-[node name="Alice" parent="YSort" instance=ExtResource( 5 )]
+[node name="Alice" parent="YSort_Spawn" instance=ExtResource( 5 )]
 
 transform/pos = Vector2( 193.173, 278.877 )
 
