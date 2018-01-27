@@ -32,16 +32,24 @@ func _ready():
 	erin.joystick_side = 1
 	
 	var spy_vibrator = get_node("SpyVibrator")
+	var transmission = get_node("Transmission")
 	
 	spy_vibrator.alice = alice
 	spy_vibrator.bob = bob
 	spy_vibrator.charlie = charlie
 	spy_vibrator.package = package
 	
+	transmission.alice = alice
+	transmission.bob = bob
+	transmission.charlie = charlie
+	transmission.erin = erin
+	transmission.package = package
+	transmission.cia = [alice, bob]
+	transmission.kgb = [charlie, erin]
+	
 	set_process(true)
 
 func _process(delta):
-	process_vibration(delta)
 	process_spawn(delta)
 
 func process_spawn(delta):
@@ -62,11 +70,3 @@ func process_spawn(delta):
 		if mob_pos.x < -10 || mob_pos.x > width + 10 || mob_pos.y < -10 || mob_pos.y > height + 10:
 			mob.remove_from_group("mobs")
 			mob.queue_free()
-
-func process_vibration(delta):
-	var distAliceBob = (alice.get_pos() - bob.get_pos()).length()
-	
-	if alice.is_a_parent_of(package) && distAliceBob < 10 && alice.get_node("Sprite").acting :
-		alice.remove_child(package)
-		bob.add_child(package)
-		Input.start_joy_vibration(1, 0, 1, 1)
