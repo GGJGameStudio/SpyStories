@@ -55,7 +55,7 @@ func _process(delta):
 					Input.start_joy_vibration(0, 0, 1, 1)
 				else:
 					Input.start_joy_vibration(1, 0, 1, 1)
-				alice_or_bob.paralyzed = true
+				alice_or_bob.set_paralyze()
 			# la cia vole au kgb
 			if charlie_or_erin.is_a_parent_of(package) && dist_cia_kgb < 50 && alice_or_bob.get_node("BuddySprite").last_move == alice_or_bob.get_node("BuddySprite").Action.Acting:
 				charlie_or_erin.remove_child(package)
@@ -64,4 +64,4 @@ func _process(delta):
 					Input.start_joy_vibration(0, 0, 1, 1)
 				else:
 					Input.start_joy_vibration(1, 0, 1, 1)
-				charlie_or_erin.paralyzed = true
+				charlie_or_erin.set_paralyze()

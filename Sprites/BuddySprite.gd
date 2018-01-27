@@ -64,6 +64,16 @@ func start_acting():
 			sprite.set_animation("action_left")
 		last_move = Action.Acting
 
+func start_paralysis():
+	if last_move == Action.WalkingUp:
+		sprite.set_animation("falling_back")
+	elif last_move == Action.WalkingDown || last_move == Action.Idle || last_move == Action.Acting: 
+		sprite.set_animation("falling_front")
+	elif last_move == Action.WalkingRight:
+		sprite.set_animation("falling_right")
+	elif last_move == Action.WalkingLeft:
+		sprite.set_animation("falling_left")
+
 func stopped():
 	sprite.set_animation(null)
 	last_move = Action.Paralyzed
