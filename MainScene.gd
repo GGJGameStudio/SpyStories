@@ -41,6 +41,8 @@ func _ready():
 	get_node("CalmTheme").set_loop(true)
 	get_node("CalmTheme").play()
 	
+	get_node("Train/AnimatedSprite").play()
+	
 	set_process(true)
 
 func _process(delta):
