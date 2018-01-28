@@ -57,6 +57,7 @@ func savate_mob(mob):
 	
 	if distance < 20:
 		mob_sprite.start_paralysis()
+		get_node("SamplePlayer2D").play("catch_sound")
 		
 		if global.owner == mob:
 			global.owner = self

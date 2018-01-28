@@ -1,17 +1,13 @@
-[gd_scene load_steps=7 format=1]
+[gd_scene load_steps=5 format=1]
 
 [ext_resource path="res://Screen/Home.gd" type="Script" id=1]
-[ext_resource path="res://Screen/Background.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Screen/images/chevron.png" type="Texture" id=3]
-[ext_resource path="res://Assets/RedOctober.fnt" type="BitmapFont" id=4]
-[ext_resource path="res://Screen/images/english_flag.png" type="Texture" id=5]
-[ext_resource path="res://Screen/images/french_flag.png" type="Texture" id=6]
+[ext_resource path="res://Screen/images/chevron.png" type="Texture" id=2]
+[ext_resource path="res://Screen/images/english_flag.png" type="Texture" id=3]
+[ext_resource path="res://Screen/images/french_flag.png" type="Texture" id=4]
 
 [node name="Node" type="Node"]
 
 script/script = ExtResource( 1 )
-
-[node name="Background" parent="." instance=ExtResource( 2 )]
 
 [node name="LanguageRight" type="LinkButton" parent="."]
 
@@ -31,7 +27,7 @@ shortcut = null
 
 transform/pos = Vector2( 46.0002, 51.0002 )
 transform/rot = 90.0
-texture = ExtResource( 3 )
+texture = ExtResource( 2 )
 
 [node name="LanguageLeft" type="LinkButton" parent="."]
 
@@ -51,7 +47,7 @@ shortcut = null
 
 transform/pos = Vector2( 46.0002, 51.0002 )
 transform/rot = -90.0
-texture = ExtResource( 3 )
+texture = ExtResource( 2 )
 
 [node name="LinkButton" type="LinkButton" parent="."]
 
@@ -61,9 +57,8 @@ size_flags/horizontal = 2
 size_flags/vertical = 2
 margin/left = 900.0
 margin/top = 569.0
-margin/right = 1006.0
-margin/bottom = 595.0
-custom_fonts/font = ExtResource( 4 )
+margin/right = 951.0
+margin/bottom = 583.0
 toggle_mode = false
 enabled_focus_mode = 0
 shortcut = null
@@ -75,12 +70,12 @@ underline = 2
 visibility/visible = false
 transform/pos = Vector2( 512, 300 )
 transform/scale = Vector2( 0.3, 0.3 )
-texture = ExtResource( 5 )
+texture = ExtResource( 3 )
 
 [node name="French" type="Sprite" parent="."]
 
 transform/pos = Vector2( 512, 300 )
 transform/scale = Vector2( 0.3, 0.3 )
-texture = ExtResource( 6 )
+texture = ExtResource( 4 )
 
 
