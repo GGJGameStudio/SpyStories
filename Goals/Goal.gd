@@ -30,8 +30,8 @@ func _on_Area2D_body_enter( body ):
 	var package = (pj == global.owner)
 	if name == "PostBox" && package && pj.is_in_group("cia_could_win"):
 		global.winner = "cia"
-		get_node("InPostBox").play("courrier_depose")
 		timer = 1
+		get_node("InPostBox").play("courrier_depose")
 	if (name=="Exit1" || name=="Exit2") && package && (pj.is_in_group("cia_could_win") || pj.is_in_group("kgb_could_win")):
 		if pj.is_in_group("cia_could_win") : 
 			global.winner = "cia"
@@ -42,6 +42,6 @@ func _on_Area2D_body_enter( body ):
 func _process(delta):
 	if timer != 0 : 
 		timer+=delta
-		if timer > 3 :
-			timer = 0
+		if timer > 1.4 :
 			get_tree().change_scene("res://Screen/End.tscn")
+			timer = 0
