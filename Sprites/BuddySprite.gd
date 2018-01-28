@@ -49,7 +49,14 @@ func set_is_running(is_running):
 
 func start_idle():
 	if last_move != Action.Acting:
-		sprite.set_animation("idle")
+		if last_move == Action.WalkingUp:
+			sprite.set_animation("idle_back")
+		elif last_move == Action.WalkingDown || last_move == Action.Idle || last_move == Action.Acting: 
+			sprite.set_animation("idle_front")
+		elif last_move == Action.WalkingRight:
+			sprite.set_animation("idle_right")
+		elif last_move == Action.WalkingLeft:
+			sprite.set_animation("idle_left")
 		last_move = Action.Idle
 
 func start_acting():
