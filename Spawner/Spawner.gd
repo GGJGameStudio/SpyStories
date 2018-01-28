@@ -39,7 +39,6 @@ func _process(delta):
 				var mob = mob_factory.instance()
 				
 				mob.set_pos(pos)
-				mob.add_to_group("mobs")
 				
 				mob.duration = initial_duration
 				mob.direction = initial_direction

@@ -48,22 +48,24 @@ sort/enabled = true
 
 [node name="Bob" parent="YSort_Spawn" instance=ExtResource( 4 )]
 
-transform/pos = Vector2( 338.733, 446.203 )
+transform/pos = Vector2( 109.072, 206.289 )
 agent_name = "bob"
 
 [node name="Charlie" parent="YSort_Spawn" instance=ExtResource( 4 )]
 
-transform/pos = Vector2( 734.602, 363.22 )
+visibility/visible = false
+transform/pos = Vector2( 972.465, 182.772 )
 agent_name = "charlie"
 
 [node name="Alice" parent="YSort_Spawn" instance=ExtResource( 4 )]
 
-transform/pos = Vector2( 193.173, 278.877 )
+visibility/visible = false
+transform/pos = Vector2( 878.055, 180.451 )
 agent_name = "alice"
 
 [node name="Erin" parent="YSort_Spawn" instance=ExtResource( 4 )]
 
-transform/pos = Vector2( 620.33, 92.5054 )
+transform/pos = Vector2( 275.839, 264.751 )
 agent_name = "erin"
 
 [node name="SpyVibrator" parent="." instance=ExtResource( 5 )]
@@ -80,12 +82,6 @@ stream/loop_restart_time = 0.0
 stream/buffering_ms = 500
 
 [node name="Exit1" parent="." instance=ExtResource( 7 )]
-
-transform/pos = Vector2( 87.5726, 567.973 )
-spawns = true
-spawn_direction = "Up"
-
-[node name="Exit3" parent="." instance=ExtResource( 7 )]
 
 transform/pos = Vector2( 87.5726, 567.973 )
 spawns = true

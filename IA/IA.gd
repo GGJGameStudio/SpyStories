@@ -8,6 +8,7 @@ const agent_name = null
 var acting_since = 0
 
 func _ready():
+	add_to_group("mobs")
 	set_fixed_process(true)
 
 func _fixed_process(delta):

@@ -51,3 +51,7 @@ func set_good_size(good_size):
 			var pos = spawn.get_pos()
 			pos.y = pos.y - 100
 			spawn.set_pos(pos)
+	
+func set_pos_pj( pj ):
+	var r = randi()%4
+	pj.set_global_pos(spawns[r].get_global_pos())
