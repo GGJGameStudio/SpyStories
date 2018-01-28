@@ -84,14 +84,12 @@ func start_paralysis():
 		sprite.set_animation("falling_left")
 
 func move(direction, delta):
-<<<<<<< HEAD
 	
 	if last_move != Action.Acting:
 		var current_move
-=======
+
 	if !is_acting:
 		var current_direction
->>>>>>> 6ab9c6b494badb4b8dc18799dd61be69f5a9be31
 		
 		if abs(direction.x) < medium && direction.y < 0:
 			current_direction = Direction.Up
@@ -117,6 +115,5 @@ func move(direction, delta):
 		is_idle = false
 		
 		last_move = current_move
-		
 		last_direction = current_direction
 
