@@ -22,12 +22,12 @@ texture = ExtResource( 3 )
 
 [node name="Alice" parent="." instance=ExtResource( 4 )]
 
-transform/pos = Vector2( 127.292, 395.189 )
+transform/pos = Vector2( 137.843, 411.77 )
 transform/scale = Vector2( 2, 2 )
 
 [node name="Charlie" parent="." instance=ExtResource( 5 )]
 
-transform/pos = Vector2( 836.756, 271.748 )
+transform/pos = Vector2( 836.756, 248.241 )
 transform/scale = Vector2( 2, 2 )
 
 [node name="Header" type="Label" parent="."]
@@ -36,9 +36,9 @@ focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 0
-margin/left = 300.0
+margin/left = 191.0
 margin/top = 10.0
-margin/right = 722.0
+margin/right = 613.0
 margin/bottom = 108.0
 custom_fonts/font = ExtResource( 6 )
 percent_visible = 1.0
@@ -52,9 +52,9 @@ focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 0
 margin/left = 26.0
-margin/top = 122.0
+margin/top = 57.0
 margin/right = 66.0
-margin/bottom = 136.0
+margin/bottom = 76.0
 custom_fonts/font = ExtResource( 6 )
 percent_visible = 1.0
 lines_skipped = 0
@@ -66,10 +66,10 @@ focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 0
-margin/left = 463.0
-margin/top = 421.0
-margin/right = 503.0
-margin/bottom = 435.0
+margin/left = 541.0
+margin/top = 347.0
+margin/right = 581.0
+margin/bottom = 366.0
 custom_fonts/font = ExtResource( 6 )
 percent_visible = 1.0
 lines_skipped = 0

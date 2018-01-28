@@ -22,12 +22,12 @@ texture = ExtResource( 3 )
 
 [node name="Erin" parent="." instance=ExtResource( 4 )]
 
-transform/pos = Vector2( 796.553, 301.734 )
+transform/pos = Vector2( 840.266, 262.543 )
 transform/scale = Vector2( 2, 2 )
 
 [node name="Bob" parent="." instance=ExtResource( 5 )]
 
-transform/pos = Vector2( 136.336, 410.262 )
+transform/pos = Vector2( 133.321, 463.019 )
 transform/scale = Vector2( 2, 2 )
 
 [node name="Header" type="Label" parent="."]
@@ -36,9 +36,9 @@ focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 0
-margin/left = 300.0
+margin/left = 191.0
 margin/top = 10.0
-margin/right = 722.0
+margin/right = 613.0
 margin/bottom = 108.0
 custom_fonts/font = ExtResource( 6 )
 percent_visible = 1.0
@@ -51,10 +51,10 @@ focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 0
-margin/left = 16.0
-margin/top = 110.0
-margin/right = 56.0
-margin/bottom = 124.0
+margin/left = 26.0
+margin/top = 57.0
+margin/right = 66.0
+margin/bottom = 76.0
 custom_fonts/font = ExtResource( 6 )
 percent_visible = 1.0
 lines_skipped = 0
@@ -66,10 +66,10 @@ focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 0
-margin/left = 444.0
-margin/top = 427.0
-margin/right = 484.0
-margin/bottom = 441.0
+margin/left = 541.0
+margin/top = 347.0
+margin/right = 581.0
+margin/bottom = 366.0
 custom_fonts/font = ExtResource( 6 )
 percent_visible = 1.0
 lines_skipped = 0
