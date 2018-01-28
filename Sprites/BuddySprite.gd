@@ -20,6 +20,7 @@ var velocity = 50
 var sprite
 
 func _ready():
+	randomize()
 	var randomSprite = randi() % templatedSprites.size()
 	sprite = templatedSprites[randomSprite].instance()
 	sprite.set_scale(Vector2(0.5, 0.5))
@@ -62,6 +63,16 @@ func start_acting():
 		elif last_move == Action.WalkingLeft:
 			sprite.set_animation("action_left")
 		last_move = Action.Acting
+
+func start_paralysis():
+	if last_move == Action.WalkingUp:
+		sprite.set_animation("falling_back")
+	elif last_move == Action.WalkingDown || last_move == Action.Idle || last_move == Action.Acting: 
+		sprite.set_animation("falling_front")
+	elif last_move == Action.WalkingRight:
+		sprite.set_animation("falling_right")
+	elif last_move == Action.WalkingLeft:
+		sprite.set_animation("falling_left")
 
 func stopped():
 	sprite.set_animation(null)

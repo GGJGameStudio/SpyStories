@@ -15,6 +15,8 @@ onready var postBox = get_node("PostBox")
 
 
 func _ready():
+	randomize()
+	
 	alice.controller = 0
 	alice.joystick_side = 0
 	alice.add_child(package)
