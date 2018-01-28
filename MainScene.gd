@@ -1,6 +1,5 @@
 extends Node
 
-
 onready var alice = get_node("YSort_Spawn/Alice")
 onready var charlie = get_node("YSort_Spawn/Charlie")
 onready var bob = get_node("YSort_Spawn/Bob")
@@ -13,32 +12,29 @@ onready var postBox = get_node("PostBox")
 func _ready():
 	alice.controller = 0
 	alice.joystick_side = 0
+	alice.add_to_group("cia")
 	global.owner = alice
 	
 	charlie.controller = 0
 	charlie.joystick_side = 1
 	charlie.add_to_group("kgb_could_win")
+	charlie.add_to_group("kgb")
 	
 	bob.controller = 1
 	bob.joystick_side = 0
 	bob.add_to_group("cia_could_win")
+	bob.add_to_group("cia")
 	
 	erin.controller = 1
 	erin.joystick_side = 1
 	erin.add_to_group("kgb_could_win")
+	erin.add_to_group("kgb")
 	
 	var spy_vibrator = get_node("SpyVibrator")
 	
 	spy_vibrator.alice = alice
 	spy_vibrator.bob = bob
 	spy_vibrator.charlie = charlie
-	
-	var transmission = get_node("YSort_Spawn/Transmission")
-	
-	transmission.alice = alice
-	transmission.bob = bob
-	transmission.charlie = charlie
-	transmission.erin = erin
 	
 	get_node("CalmTheme").set_loop(true)
 	get_node("CalmTheme").play()

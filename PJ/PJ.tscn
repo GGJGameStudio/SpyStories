@@ -6,6 +6,7 @@
 [node name="Node2D" type="Node2D"]
 
 script/script = ExtResource( 1 )
+agent_name = null
 
 [node name="BuddySprite" parent="." instance=ExtResource( 2 )]
 
