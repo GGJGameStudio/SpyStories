@@ -11,10 +11,12 @@ const medium = sqrt(2)/2
 
 var templatedSprites = [load("res://Sprites/NakedDudeSprite.tscn"),load("res://Sprites/Guy_1.tscn")]
 
+var is_paralyzed = false
 var is_acting = false
 var is_idle = true
 var last_direction = Direction.Down
 
+var paralyzed_since = 0
 var acting_since = 0
 var velocity = 50
 var sprite
@@ -32,9 +34,17 @@ func _fixed_process(delta):
 	if is_acting:
 		acting_since += delta
 	
+	if is_paralyzed:
+		paralyzed_since += delta
+	
 	if acting_since > 0.5:
 		is_acting = false
 		acting_since = 0
+		self.start_idle()
+	
+	if paralyzed_since > 2:
+		is_paralyzed = false
+		paralyzed_since  = 0
 		self.start_idle()
 
 func set_is_running(is_running):
@@ -48,7 +58,7 @@ func set_is_running(is_running):
 	velocity = 100 if is_running else 50
 
 func start_idle():
-	if !is_acting:
+	if !is_acting && !is_paralyzed:
 		is_idle = true
 		
 		if last_direction == Direction.Up:
@@ -61,7 +71,7 @@ func start_idle():
 			sprite.set_animation("idle_left")
 
 func start_acting():
-	if !is_acting:
+	if !is_acting  && !is_paralyzed:
 		is_acting = true
 		
 		if last_direction == Direction.Up:
@@ -74,6 +84,8 @@ func start_acting():
 			sprite.set_animation("action_left")
 
 func start_paralysis():
+	is_paralyzed = true
+	
 	if last_direction == Direction.Up:
 		sprite.set_animation("falling_back")
 	elif last_direction == Direction.Down: 
@@ -84,8 +96,7 @@ func start_paralysis():
 		sprite.set_animation("falling_left")
 
 func move_buddy(direction, delta):
-	
-	if !is_acting:
+	if !is_acting && !is_paralyzed:
 		var current_direction
 		
 		if abs(direction.x) < medium && direction.y < 0:
@@ -107,9 +118,7 @@ func move_buddy(direction, delta):
 			elif current_direction == Direction.Left:
 				sprite.set_animation("walk_left")
 		
-		#var current_pos = get_global_pos()
-		#get_parent().set_pos(current_pos + direction * velocity * delta)
-		move(direction*velocity * delta)
+		move(direction * velocity * delta)
 		
 		is_idle = false
 		

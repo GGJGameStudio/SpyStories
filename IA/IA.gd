@@ -15,7 +15,7 @@ func _fixed_process(delta):
 		set_new_movement()
 	
 	if direction.length() > 0:
-		get_node("Sprite").move_buddy(direction,delta)
+		get_node("BuddySprite").move_buddy(direction,delta)
 
 func set_new_movement():
 	if direction.length() == 0:
@@ -24,6 +24,6 @@ func set_new_movement():
 	else:
 		direction = Vector2(0,0)
 		duration = randi() % 3
-		get_node("Sprite").start_idle()
+		get_node("BuddySprite").start_idle()
 	
 	acting_since = 0
