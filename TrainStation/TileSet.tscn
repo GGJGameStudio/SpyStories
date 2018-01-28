@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=1]
+[gd_scene load_steps=17 format=1]
 
 [ext_resource path="res://TrainStation/Textures/Banc Bois 2.tex" type="Texture" id=1]
 [ext_resource path="res://TrainStation/Textures/Banc Bois.tex" type="Texture" id=2]
@@ -10,6 +10,11 @@
 [ext_resource path="res://TrainStation/Textures/Stone1.tex" type="Texture" id=8]
 [ext_resource path="res://TrainStation/Textures/Stone2.tex" type="Texture" id=9]
 [ext_resource path="res://TrainStation/Textures/Stone3.tex" type="Texture" id=10]
+[ext_resource path="res://TrainStation/Textures/Mur.tex" type="Texture" id=11]
+[ext_resource path="res://TrainStation/Textures/Brique true 2.tex" type="Texture" id=12]
+[ext_resource path="res://TrainStation/Textures/Brique true.tex" type="Texture" id=13]
+[ext_resource path="res://TrainStation/Textures/railv2.tex" type="Texture" id=14]
+[ext_resource path="res://TrainStation/Textures/da4f.tex" type="Texture" id=15]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -90,12 +95,24 @@ texture = ExtResource( 9 )
 
 texture = ExtResource( 10 )
 
-[node name="Sprite10" type="Sprite" parent="."]
+[node name="MurBrique" type="Sprite" parent="."]
 
-[node name="Sprite11" type="Sprite" parent="."]
+texture = ExtResource( 11 )
 
-[node name="Sprite12" type="Sprite" parent="."]
+[node name="MurBrique2" type="Sprite" parent="."]
 
-[node name="Sprite13" type="Sprite" parent="."]
+texture = ExtResource( 12 )
+
+[node name="MurBrique3" type="Sprite" parent="."]
+
+texture = ExtResource( 13 )
+
+[node name="Rail" type="Sprite" parent="."]
+
+texture = ExtResource( 14 )
+
+[node name="Sol béton" type="Sprite" parent="."]
+
+texture = ExtResource( 15 )
 
 

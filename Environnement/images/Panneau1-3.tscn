@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=1]
+
+[ext_resource path="res://Environnement/images/Panneau/exit left(off).png" type="Texture" id=1]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Panneau1-3" type="Sprite" parent="."]
+
+texture = ExtResource( 1 )
+
+

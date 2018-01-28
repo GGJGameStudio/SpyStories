@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=1]
+
+[ext_resource path="res://Environnement/images/Guichet/guichet.png" type="Texture" id=1]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Guichet" type="Sprite" parent="."]
+
+transform/pos = Vector2( 109.152, 77.5929 )
+transform/scale = Vector2( 0.36669, 0.412485 )
+texture = ExtResource( 1 )
+
+
