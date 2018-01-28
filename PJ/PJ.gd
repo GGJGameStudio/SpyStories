@@ -58,15 +58,15 @@ func savate_mob(mob):
 	if distance < 20:
 		mob_sprite.start_paralysis()
 		
-		if global.owner == mob.agent_name:
-			global.owner = self.agent_name
+		if global.owner == mob:
+			global.owner = self
 
 func switch_package(mob):
 	var mob_sprite = mob.get_node("BuddySprite")
 	var distance = mob_sprite.get_global_pos().distance_to(sprite.get_global_pos())
 	
-	if distance < 20 && global.owner == self.agent_name:
-		global.owner = mob.agent_name
+	if distance < 20 && global.owner == self:
+		global.owner = mob
 
 func set_paralyze():
 	sprite.start_paralysis()
