@@ -1,5 +1,6 @@
 extends Area2D
 
+var timer=0
 export(bool) var spawns
 export(String, "Up", "Down", "Right", "Left") var spawn_direction
 
@@ -20,6 +21,8 @@ func _ready():
 	
 		spawn.initial_duration = 4
 		spawn.spawn_interval = rand_range(1, 4)
+		
+		set_process(true)
 
 func _on_Area2D_body_enter( body ):
 	var name = get_name()
@@ -28,10 +31,17 @@ func _on_Area2D_body_enter( body ):
 	if name == "PostBox" && package && pj.is_in_group("cia_could_win"):
 		global.winner = "cia"
 		get_node("InPostBox").play("courrier_depose")
-		get_tree().change_scene("res://Screen/End.tscn")
+		timer = 1
 	if (name=="Exit1" || name=="Exit2") && package && (pj.is_in_group("cia_could_win") || pj.is_in_group("kgb_could_win")):
 		if pj.is_in_group("cia_could_win") : 
 			global.winner = "cia"
 		else :
 			global.winner = "kgb"
-		get_tree().change_scene("res://Screen/End.tscn")
+		timer = 1
+		
+func _process(delta):
+	if timer != 0 : 
+		timer+=delta
+		if timer > 3 :
+			timer = 0
+			get_tree().change_scene("res://Screen/End.tscn")
