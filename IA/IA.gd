@@ -6,7 +6,6 @@ var duration = 1
 var acting_since = 0
 
 func _ready():
-	set_new_movement()
 	set_process(true)
 
 func _process(delta):

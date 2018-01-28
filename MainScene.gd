@@ -13,10 +13,7 @@ onready var exit1 = get_node("Exit1")
 onready var exit2 = get_node("Exit2")
 onready var postBox = get_node("PostBox")
 
-
 func _ready():
-	randomize()
-	
 	alice.controller = 0
 	alice.joystick_side = 0
 	alice.add_child(package)
@@ -52,11 +49,10 @@ func _ready():
 	get_node("CalmTheme").set_loop(true)
 	get_node("CalmTheme").play()
 	
-	get_node("Train1/AnimatedSprite").play()
-	get_node("Train2/AnimatedSprite").play()
+	get_node("Train1").already_arrived(true)
+	get_node("Train2").arrived_in(0.2, false)
+	get_node("Train3").arrived_in(25, true)
+	get_node("Train4").already_arrived(false)
 	
-	set_process(true)
-	
-func _process(delta):
-	pass
-	#		get_tree().change_scene("res://Screen/Home.tscn")
+	for spawn in get_tree().get_nodes_in_group("spawners"):
+		spawn.spawn_area = get_node("YSort_Spawn")
