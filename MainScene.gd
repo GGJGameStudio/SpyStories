@@ -32,26 +32,27 @@ func _ready():
 	erin.add_to_group("kgb_could_win")
 	
 	var spy_vibrator = get_node("SpyVibrator")
-	var transmission = get_node("Transmission")	
 	
 	spy_vibrator.alice = alice
 	spy_vibrator.bob = bob
 	spy_vibrator.charlie = charlie
 	spy_vibrator.package = package
 	
-	transmission.alice = alice
-	transmission.bob = bob
-	transmission.charlie = charlie
-	transmission.erin = erin
-	transmission.package = package
-	transmission.cia = [alice, bob]
-	transmission.kgb = [charlie, erin]
+#	var transmission = get_node("Transmission")
+#	
+#	transmission.alice = alice
+#	transmission.bob = bob
+#	transmission.charlie = charlie
+#	transmission.erin = erin
+#	transmission.package = package
+#	transmission.cia = [alice, bob]
+#	transmission.kgb = [charlie, erin]
 	
 	get_node("CalmTheme").set_loop(true)
 	get_node("CalmTheme").play()
 	
 	get_node("Train1").already_arrived(true)
-	get_node("Train2").arrived_in(0.2, false)
+	get_node("Train2").arrived_in(10, false)
 	get_node("Train3").arrived_in(25, true)
 	get_node("Train4").already_arrived(false)
 	

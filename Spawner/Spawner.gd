@@ -15,8 +15,8 @@ var nb_spawn = 0
 var first_delay = 0
 var delay = 0
 
-var initial_direction
-var initial_duration
+var initial_direction = Vector2(0,0)
+var initial_duration = 2
 
 func _ready():
 	add_to_group("spawners")
