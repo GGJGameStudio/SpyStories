@@ -8,6 +8,7 @@
 [ext_resource path="res://Vibrator/SpyVibrator.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Assets/train_mission.ogg" type="AudioStream" id=7]
 [ext_resource path="res://Goals/Goal.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Owner.gd" type="Script" id=9]
 
 [node name="MainScene" type="Node"]
 
@@ -78,5 +79,20 @@ transform/pos = Vector2( 7.53671, 263.784 )
 [node name="PostBox" parent="." instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 56.1148, 9.73059 )
+
+[node name="Owner" type="Label" parent="."]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 823.0
+margin/top = 20.0
+margin/right = 863.0
+margin/bottom = 34.0
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+script/script = ExtResource( 9 )
 
 
