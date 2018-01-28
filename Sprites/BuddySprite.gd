@@ -85,9 +85,6 @@ func start_paralysis():
 
 func move(direction, delta):
 	
-	if last_move != Action.Acting:
-		var current_move
-
 	if !is_acting:
 		var current_direction
 		
@@ -114,6 +111,5 @@ func move(direction, delta):
 		get_parent().set_pos(current_pos + direction * velocity * delta)
 		is_idle = false
 		
-		last_move = current_move
 		last_direction = current_direction
 

@@ -54,3 +54,9 @@ func _ready():
 	
 	get_node("Train1/AnimatedSprite").play()
 	get_node("Train2/AnimatedSprite").play()
+	
+	set_fixed_process(true)
+
+func _fixed_process(delta):
+	var space = get_world_2d().get_space()
+	var space_state = Physics2DServer.space_get_direct_state(space)
