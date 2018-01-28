@@ -68,6 +68,7 @@ func switch_package(mob):
 	
 	if distance < 20 && global.owner == self:
 		global.owner = mob
+		get_node("SamplePlayer2D").play("reception_message")
 
 func set_paralyze():
 	sprite.start_paralysis()
