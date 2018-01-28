@@ -75,7 +75,7 @@ func _calc_distBobCharlie():
 # determine la frequence de vibration de Bob
 # lorsqu'il se rapproche du Paquet, la frequence augmente
 func _calc_distBobPackage():
-	var dist = bob.get_global_pos().distance_to(package.get_global_pos())
+	var dist = bob.get_global_pos().distance_to(global.owner.get_global_pos())
 	if dist >= 300 : 
 		distBobPackage = 6
 	else :
