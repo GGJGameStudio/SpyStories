@@ -23,12 +23,15 @@ func _ready():
 	
 	charlie.controller = 0
 	charlie.joystick_side = 1
+	charlie.add_to_group("kgb_could_win")
 	
 	bob.controller = 1
 	bob.joystick_side = 0
+	bob.add_to_group("cia_could_win")
 	
 	erin.controller = 1
 	erin.joystick_side = 1
+	erin.add_to_group("kgb_could_win")
 	
 	var spy_vibrator = get_node("SpyVibrator")
 	var transmission = get_node("Transmission")	
