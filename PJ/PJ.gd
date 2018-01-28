@@ -31,7 +31,7 @@ func _process(delta):
 		var direction = Vector2(Input.get_joy_axis(controller,2*joystick_side), Input.get_joy_axis(controller,2*joystick_side+1))
 		
 		if abs(direction.x) > deadzone || abs(direction.y) > deadzone:
-			sprite.move(direction.normalized(), delta)
+			sprite.move_buddy(direction.normalized(), delta)
 		else:
 			sprite.start_idle()
 

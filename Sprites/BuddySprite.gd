@@ -1,4 +1,4 @@
-extends Node2D
+extends KinematicBody2D
 
 enum Direction {
 	Up,
@@ -26,9 +26,9 @@ func _ready():
 	sprite.set_scale(Vector2(0.5, 0.5))
 	add_child(sprite)
 	
-	set_process(true)
+	set_fixed_process(true)
 
-func _process(delta):
+func _fixed_process(delta):
 	if is_acting:
 		acting_since += delta
 	
@@ -83,7 +83,7 @@ func start_paralysis():
 	elif last_direction == Direction.Left:
 		sprite.set_animation("falling_left")
 
-func move(direction, delta):
+func move_buddy(direction, delta):
 	
 	if !is_acting:
 		var current_direction
@@ -107,8 +107,10 @@ func move(direction, delta):
 			elif current_direction == Direction.Left:
 				sprite.set_animation("walk_left")
 		
-		var current_pos = self.get_global_pos()
-		get_parent().set_pos(current_pos + direction * velocity * delta)
+		#var current_pos = get_global_pos()
+		#get_parent().set_pos(current_pos + direction * velocity * delta)
+		move(direction*velocity * delta)
+		
 		is_idle = false
 		
 		last_direction = current_direction

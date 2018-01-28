@@ -58,5 +58,4 @@ func _ready():
 	set_fixed_process(true)
 
 func _fixed_process(delta):
-	var space = get_world_2d().get_space()
-	var space_state = Physics2DServer.space_get_direct_state(space)
+	pass

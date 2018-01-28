@@ -7,16 +7,16 @@ var acting_since = 0
 
 func _ready():
 	set_new_movement()
-	set_process(true)
+	set_fixed_process(true)
 
-func _process(delta):
+func _fixed_process(delta):
 	acting_since += delta
 	
 	if acting_since > duration:
 		set_new_movement()
 	
 	if direction.length() > 0:
-		get_node("Sprite").move(direction,delta)
+		get_node("Sprite").move_buddy(direction,delta)
 
 func set_new_movement():
 	if direction.length() == 0:

@@ -21,7 +21,7 @@ func _process(delta):
 		else:
 			other_cia = alice
 		var dist_cia = (alice_or_bob.get_pos() - other_cia.get_pos()).length()
-		if alice_or_bob.is_a_parent_of(package) && dist_cia < 50 && alice_or_bob.get_node("BuddySprite").last_move == alice_or_bob.get_node("BuddySprite").Action.Acting:
+		if alice_or_bob.is_a_parent_of(package) && dist_cia < 50 && alice_or_bob.get_node("BuddySprite").is_acting:
 			alice_or_bob.remove_child(package)
 			other_cia.add_child(package)
 			if alice==alice_or_bob:
