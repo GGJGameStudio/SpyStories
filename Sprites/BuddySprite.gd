@@ -9,7 +9,8 @@ enum Direction {
 
 const medium = sqrt(2)/2
 
-var templatedSprites = [load("res://Sprites/NakedDudeSprite.tscn"),load("res://Sprites/Guy_1.tscn")]
+var templatedSprites = [load("res://Sprites/Guy_1.tscn"),load("res://Sprites/Petroushka.tscn")]
+var templateNakedDude = load("res://Sprites/NakedDudeSprite.tscn")
 
 var is_paralyzed = false
 var is_acting = false
@@ -23,8 +24,13 @@ var sprite
 
 func _ready():
 	randomize()
-	var randomSprite = randi() % templatedSprites.size()
-	sprite = templatedSprites[randomSprite].instance()
+	
+	if randi() % 500 == 0:
+		sprite = templateNakedDude.instance()
+	else:
+		var randomSprite = randi() % templatedSprites.size()
+		sprite = templatedSprites[randomSprite].instance()
+		
 	sprite.set_scale(Vector2(0.5, 0.5))
 	add_child(sprite)
 	
