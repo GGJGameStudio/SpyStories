@@ -9,6 +9,11 @@ onready var erin = get_node("YSort_Spawn/Erin")
 
 onready var package = packageScene.instance()
 
+onready var exit1 = get_node("Exit1")
+onready var exit2 = get_node("Exit2")
+onready var postBox = get_node("PostBox")
+
+
 func _ready():
 	alice.controller = 0
 	alice.joystick_side = 0
@@ -24,7 +29,7 @@ func _ready():
 	erin.joystick_side = 1
 	
 	var spy_vibrator = get_node("SpyVibrator")
-	var transmission = get_node("Transmission")
+	var transmission = get_node("Transmission")	
 	
 	spy_vibrator.alice = alice
 	spy_vibrator.bob = bob
@@ -49,3 +54,4 @@ func _ready():
 	
 func _process(delta):
 	pass
+	#		get_tree().change_scene("res://Screen/Home.tscn")

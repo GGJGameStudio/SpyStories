@@ -8,11 +8,7 @@
 [ext_resource path="res://Transmission/Transmission.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Vibrator/SpyVibrator.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Assets/train_mission.ogg" type="AudioStream" id=8]
-
-[sub_resource type="RectangleShape2D" id=1]
-
-custom_solver_bias = 0.0
-extents = Vector2( 59.9058, 37.9012 )
+[ext_resource path="res://Goals/Goal.tscn" type="PackedScene" id=9]
 
 [node name="MainScene" type="Node"]
 
@@ -24,14 +20,6 @@ script/script = ExtResource( 1 )
 
 transform/pos = Vector2( 963.388, 121.073 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Train1"]
-
-transform/pos = Vector2( -101.313, 2.21606 )
-transform/scale = Vector2( 2.63332, 1 )
-shape = SubResource( 1 )
-trigger = false
-_update_shape_index = 0
-
 [node name="Train2" parent="." instance=ExtResource( 3 )]
 
 transform/pos = Vector2( 964.749, 284.29 )
@@ -40,10 +28,6 @@ transform/pos = Vector2( 964.749, 284.29 )
 
 sort/enabled = true
 script/script = ExtResource( 4 )
-
-[node name="Erin" parent="YSort_Spawn" instance=ExtResource( 5 )]
-
-transform/pos = Vector2( 620.33, 92.5054 )
 
 [node name="Bob" parent="YSort_Spawn" instance=ExtResource( 5 )]
 
@@ -56,6 +40,10 @@ transform/pos = Vector2( 734.602, 363.22 )
 [node name="Alice" parent="YSort_Spawn" instance=ExtResource( 5 )]
 
 transform/pos = Vector2( 193.173, 278.877 )
+
+[node name="Erin" parent="YSort_Spawn" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 620.33, 92.5054 )
 
 [node name="Transmission" parent="." instance=ExtResource( 6 )]
 
@@ -71,5 +59,17 @@ stream/autoplay = false
 stream/paused = false
 stream/loop_restart_time = 0.0
 stream/buffering_ms = 500
+
+[node name="Exit1" parent="." instance=ExtResource( 9 )]
+
+transform/pos = Vector2( 88.933, 565.252 )
+
+[node name="Exit2" parent="." instance=ExtResource( 9 )]
+
+transform/pos = Vector2( 7.53671, 263.784 )
+
+[node name="PostBox" parent="." instance=ExtResource( 9 )]
+
+transform/pos = Vector2( 56.1148, 9.73059 )
 
 
