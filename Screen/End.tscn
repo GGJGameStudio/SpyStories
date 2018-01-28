@@ -1,12 +1,16 @@
-[gd_scene load_steps=4 format=1]
+[gd_scene load_steps=6 format=1]
 
 [ext_resource path="res://Screen/End.gd" type="Script" id=1]
-[ext_resource path="res://Screen/Label.gd" type="Script" id=2]
-[ext_resource path="res://Screen/StartAgain.gd" type="Script" id=3]
+[ext_resource path="res://Screen/Background.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Assets/RedOctober.fnt" type="BitmapFont" id=3]
+[ext_resource path="res://Screen/Label.gd" type="Script" id=4]
+[ext_resource path="res://Screen/StartAgain.gd" type="Script" id=5]
 
 [node name="Node2D" type="Node2D"]
 
 script/script = ExtResource( 1 )
+
+[node name="Sprite" parent="." instance=ExtResource( 2 )]
 
 [node name="Label" type="Label" parent="."]
 
@@ -18,10 +22,11 @@ margin/left = 458.0
 margin/top = 139.0
 margin/right = 498.0
 margin/bottom = 153.0
+custom_fonts/font = ExtResource( 3 )
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
-script/script = ExtResource( 2 )
+script/script = ExtResource( 4 )
 
 [node name="LinkButton" type="LinkButton" parent="."]
 
@@ -31,13 +36,14 @@ size_flags/horizontal = 2
 size_flags/vertical = 2
 margin/left = 708.0
 margin/top = 127.0
-margin/right = 786.0
-margin/bottom = 141.0
+margin/right = 861.0
+margin/bottom = 153.0
+custom_fonts/font = ExtResource( 3 )
 toggle_mode = false
 enabled_focus_mode = 0
 shortcut = null
 text = "Start Again ?"
 underline = 2
-script/script = ExtResource( 3 )
+script/script = ExtResource( 5 )
 
 
