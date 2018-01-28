@@ -14,7 +14,6 @@ func _ready():
 	alice.controller = 0
 	alice.joystick_side = 0
 	global.owner = alice
-	alice.
 	
 	charlie.controller = 0
 	charlie.joystick_side = 1
