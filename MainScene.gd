@@ -17,19 +17,23 @@ func _ready():
 	alice.controller = 0
 	alice.joystick_side = 0
 	alice.add_child(package)
-	global.owner = alice
+	alice.add_to_group("cia")
+	global.owner = alice.agent_name
 	
 	charlie.controller = 0
 	charlie.joystick_side = 1
 	charlie.add_to_group("kgb_could_win")
+	charlie.add_to_group("kgb")
 	
 	bob.controller = 1
 	bob.joystick_side = 0
 	bob.add_to_group("cia_could_win")
+	bob.add_to_group("cia")
 	
 	erin.controller = 1
 	erin.joystick_side = 1
 	erin.add_to_group("kgb_could_win")
+	erin.add_to_group("kgb")
 	
 	var spy_vibrator = get_node("SpyVibrator")
 	

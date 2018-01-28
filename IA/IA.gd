@@ -3,6 +3,8 @@ extends Node2D
 var direction = Vector2(0,0)
 var duration = 1
 
+const agent_name = null
+
 var acting_since = 0
 
 func _ready():

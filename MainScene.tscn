@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=1]
+[gd_scene load_steps=10 format=1]
 
 [ext_resource path="res://MainScene.gd" type="Script" id=1]
 [ext_resource path="res://TrainStation/MapTrain.tscn" type="PackedScene" id=2]
@@ -8,6 +8,18 @@
 [ext_resource path="res://Assets/train_mission.ogg" type="AudioStream" id=6]
 [ext_resource path="res://Goals/Goal.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Transmission/Savate.tscn" type="PackedScene" id=8]
+
+[sub_resource type="GDScript" id=1]
+
+script/source = "extends Label
+
+func _ready():
+	set_process(true)
+
+func _process(delta):
+	if global.owner != null:
+		set_text(global.owner)
+"
 
 [node name="MainScene" type="Node"]
 
@@ -33,24 +45,27 @@ transform/pos = Vector2( 933.875, 397.495 )
 
 [node name="YSort_Spawn" type="YSort" parent="."]
 
-editor/display_folded = true
 sort/enabled = true
 
 [node name="Bob" parent="YSort_Spawn" instance=ExtResource( 4 )]
 
 transform/pos = Vector2( 338.733, 446.203 )
+agent_name = "bob"
 
 [node name="Charlie" parent="YSort_Spawn" instance=ExtResource( 4 )]
 
 transform/pos = Vector2( 734.602, 363.22 )
+agent_name = "charlie"
 
 [node name="Alice" parent="YSort_Spawn" instance=ExtResource( 4 )]
 
 transform/pos = Vector2( 193.173, 278.877 )
+agent_name = "alice"
 
 [node name="Erin" parent="YSort_Spawn" instance=ExtResource( 4 )]
 
 transform/pos = Vector2( 620.33, 92.5054 )
+agent_name = "erin"
 
 [node name="SpyVibrator" parent="." instance=ExtResource( 5 )]
 
@@ -80,8 +95,22 @@ spawn_direction = "Right"
 [node name="PostBox" parent="." instance=ExtResource( 7 )]
 
 transform/pos = Vector2( 56.1148, 9.73059 )
-spawns = null
 
 [node name="Node" parent="." instance=ExtResource( 8 )]
+
+[node name="Label" type="Label" parent="."]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 717.0
+margin/top = 8.0
+margin/right = 757.0
+margin/bottom = 22.0
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+script/script = SubResource( 1 )
 
 
