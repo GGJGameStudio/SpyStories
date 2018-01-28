@@ -1,11 +1,127 @@
+<<<<<<< HEAD
 [gd_scene load_steps=2 format=1]
 
 [ext_resource path="res://PJ/PJ.tscn" type="PackedScene" id=1]
+=======
+[gd_scene load_steps=9 format=1]
+
+[ext_resource path="res://MainScene.gd" type="Script" id=1]
+[ext_resource path="res://TrainStation/MapTrain.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Train/Train.tscn" type="PackedScene" id=3]
+[ext_resource path="res://PJ/PJ.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Vibrator/SpyVibrator.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Assets/train_mission.ogg" type="AudioStream" id=6]
+[ext_resource path="res://Goals/Goal.tscn" type="PackedScene" id=7]
+
+[sub_resource type="GDScript" id=1]
+
+script/source = "extends Label
+
+func _ready():
+	set_process(true)
+
+func _process(delta):
+	if global.owner != null:
+		set_text(global.owner.agent_name)
+"
+>>>>>>> 8769985d0b7b5ccf32a5799fe08bc5a594ce8673
 
 [node name="MainScene" type="Node"]
 
 [node name="PJ" parent="." instance=ExtResource( 1 )]
 
+<<<<<<< HEAD
 transform/pos = Vector2( 284.056, 394.753 )
+=======
+[node name="TileMap" parent="." instance=ExtResource( 2 )]
+
+[node name="Train1" parent="." instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 934.719, 126.219 )
+
+[node name="Train2" parent="." instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 935.345, 235.039 )
+
+[node name="Train3" parent="." instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 934.61, 285.025 )
+
+[node name="Train4" parent="." instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 933.875, 397.495 )
+
+[node name="YSort_Spawn" type="YSort" parent="."]
+
+sort/enabled = true
+
+[node name="Bob" parent="YSort_Spawn" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 109.072, 206.289 )
+agent_name = "bob"
+
+[node name="Charlie" parent="YSort_Spawn" instance=ExtResource( 4 )]
+
+visibility/visible = false
+transform/pos = Vector2( 972.465, 182.772 )
+agent_name = "charlie"
+
+[node name="Alice" parent="YSort_Spawn" instance=ExtResource( 4 )]
+
+visibility/visible = false
+transform/pos = Vector2( 878.055, 180.451 )
+agent_name = "alice"
+
+[node name="Erin" parent="YSort_Spawn" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 275.839, 264.751 )
+agent_name = "erin"
+
+[node name="SpyVibrator" parent="." instance=ExtResource( 5 )]
+
+[node name="CalmTheme" type="StreamPlayer" parent="."]
+
+stream/stream = ExtResource( 6 )
+stream/play = false
+stream/loop = false
+stream/volume_db = 0.0
+stream/autoplay = false
+stream/paused = false
+stream/loop_restart_time = 0.0
+stream/buffering_ms = 500
+
+[node name="Exit1" parent="." instance=ExtResource( 7 )]
+
+transform/pos = Vector2( 87.5726, 567.973 )
+spawns = true
+spawn_direction = "Up"
+
+[node name="Exit2" parent="." instance=ExtResource( 7 )]
+
+transform/pos = Vector2( -21.1064, 240.456 )
+transform/scale = Vector2( 2.0824, 2.04432 )
+spawns = true
+spawn_direction = "Right"
+
+[node name="PostBox" parent="." instance=ExtResource( 7 )]
+
+transform/pos = Vector2( 44.2843, 17.8259 )
+transform/scale = Vector2( 2.03952, 1.90166 )
+
+[node name="Label" type="Label" parent="."]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 717.0
+margin/top = 8.0
+margin/right = 757.0
+margin/bottom = 22.0
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+script/script = SubResource( 1 )
+>>>>>>> 8769985d0b7b5ccf32a5799fe08bc5a594ce8673
 
 

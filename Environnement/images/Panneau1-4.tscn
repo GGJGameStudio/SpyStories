@@ -1,0 +1,7 @@
+[gd_scene format=1]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Panneau1-4" type="Sprite" parent="."]
+
+

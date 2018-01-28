@@ -1,0 +1,74 @@
+[gd_scene load_steps=18 format=1]
+
+[ext_resource path="res://Train/Train.gd" type="Script" id=1]
+[ext_resource path="res://Train/images/train10.png" type="Texture" id=2]
+[ext_resource path="res://Train/images/train14.png" type="Texture" id=3]
+[ext_resource path="res://Train/images/train1.png" type="Texture" id=4]
+[ext_resource path="res://Train/images/train2.png" type="Texture" id=5]
+[ext_resource path="res://Train/images/train3.png" type="Texture" id=6]
+[ext_resource path="res://Train/images/train4.png" type="Texture" id=7]
+[ext_resource path="res://Train/images/train5.png" type="Texture" id=8]
+[ext_resource path="res://Train/images/train6.png" type="Texture" id=9]
+[ext_resource path="res://Train/images/train7.png" type="Texture" id=10]
+[ext_resource path="res://Train/images/train8.png" type="Texture" id=11]
+[ext_resource path="res://Train/images/train9.png" type="Texture" id=12]
+[ext_resource path="res://Train/images/train11.png" type="Texture" id=13]
+[ext_resource path="res://Train/images/train12.png" type="Texture" id=14]
+[ext_resource path="res://Train/images/train13.png" type="Texture" id=15]
+[ext_resource path="res://Spawner/Spawner.tscn" type="PackedScene" id=16]
+
+[sub_resource type="SpriteFrames" id=1]
+
+animations = [ {
+"frames": [ null ],
+"loop": true,
+"name": "hidden",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "waiting_bad_side",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ) ],
+"loop": false,
+"name": "waiting_good_side",
+"speed": 1.0
+}, {
+"frames": [ ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 2 ), ExtResource( 2 ), ExtResource( 2 ), ExtResource( 2 ), ExtResource( 2 ) ],
+"loop": false,
+"name": "arriving_bad_side",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 2 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 3 ) ],
+"loop": false,
+"name": "arriving_good_side",
+"speed": 10.0
+} ]
+
+[node name="Node2D" type="Node2D"]
+
+script/script = ExtResource( 1 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+
+frames = SubResource( 1 )
+animation = "waiting_good_side"
+
+[node name="Spawn1" parent="." instance=ExtResource( 16 )]
+
+transform/pos = Vector2( -49.6518, 41.9966 )
+
+[node name="Spawn2" parent="." instance=ExtResource( 16 )]
+
+transform/pos = Vector2( -1.98606, 41.9966 )
+
+[node name="Spawn3" parent="." instance=ExtResource( 16 )]
+
+transform/pos = Vector2( 27.4078, 43.5994 )
+
+[node name="Spawn4" parent="." instance=ExtResource( 16 )]
+
+transform/pos = Vector2( 76.6623, 41.5994 )
+
+
