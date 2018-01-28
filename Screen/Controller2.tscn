@@ -1,27 +1,31 @@
-[gd_scene load_steps=5 format=1]
+[gd_scene load_steps=7 format=1]
 
 [ext_resource path="res://Screen/Controller2.gd" type="Script" id=1]
-[ext_resource path="res://Screen/images/splitter.png" type="Texture" id=2]
-[ext_resource path="res://PJSelector/ErinSelector.tscn" type="PackedScene" id=3]
-[ext_resource path="res://PJSelector/BobSelector.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Screen/Background.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Screen/images/splitter.png" type="Texture" id=3]
+[ext_resource path="res://PJSelector/ErinSelector.tscn" type="PackedScene" id=4]
+[ext_resource path="res://PJSelector/BobSelector.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Assets/RedOctober.fnt" type="BitmapFont" id=6]
 
 [node name="Node2D" type="Node2D"]
 
 script/script = ExtResource( 1 )
+
+[node name="Background" parent="." instance=ExtResource( 2 )]
 
 [node name="Splitter" type="Sprite" parent="."]
 
 transform/pos = Vector2( 502.621, 354.49 )
 transform/rot = -45.0
 transform/scale = Vector2( 2, 2 )
-texture = ExtResource( 2 )
+texture = ExtResource( 3 )
 
-[node name="Erin" parent="." instance=ExtResource( 3 )]
+[node name="Erin" parent="." instance=ExtResource( 4 )]
 
 transform/pos = Vector2( 796.553, 301.734 )
 transform/scale = Vector2( 2, 2 )
 
-[node name="Bob" parent="." instance=ExtResource( 4 )]
+[node name="Bob" parent="." instance=ExtResource( 5 )]
 
 transform/pos = Vector2( 136.336, 410.262 )
 transform/scale = Vector2( 2, 2 )
@@ -36,6 +40,7 @@ margin/left = 300.0
 margin/top = 10.0
 margin/right = 722.0
 margin/bottom = 108.0
+custom_fonts/font = ExtResource( 6 )
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
@@ -50,6 +55,7 @@ margin/left = 16.0
 margin/top = 110.0
 margin/right = 56.0
 margin/bottom = 124.0
+custom_fonts/font = ExtResource( 6 )
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
@@ -64,6 +70,7 @@ margin/left = 444.0
 margin/top = 427.0
 margin/right = 484.0
 margin/bottom = 441.0
+custom_fonts/font = ExtResource( 6 )
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
