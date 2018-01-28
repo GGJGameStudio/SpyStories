@@ -86,6 +86,7 @@ func stopped():
 	last_move = Action.Paralyzed
 
 func move(direction, delta):
+	
 	if last_move != Action.Acting:
 		var current_move
 		
@@ -112,3 +113,4 @@ func move(direction, delta):
 		get_parent().set_pos(current_pos + direction * velocity * delta)
 		
 		last_move = current_move
+		

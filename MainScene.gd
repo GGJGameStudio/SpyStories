@@ -54,9 +54,3 @@ func _ready():
 	
 	get_node("Train1/AnimatedSprite").play()
 	get_node("Train2/AnimatedSprite").play()
-	
-	set_process(true)
-	
-func _process(delta):
-	pass
-	#		get_tree().change_scene("res://Screen/Home.tscn")
