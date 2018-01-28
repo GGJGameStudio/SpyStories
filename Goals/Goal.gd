@@ -23,7 +23,7 @@ func _ready():
 
 func _on_Area2D_body_enter( body ):
 	var name = get_name()
-	var pj = body.get_parent().get_parent()
+	var pj = body.get_parent()
 	var package = (pj == global.owner)
 	if name == "PostBox" && package && pj.is_in_group("cia_could_win"):
 		global.winner = "cia"
