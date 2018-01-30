@@ -23,7 +23,7 @@ func _process(delta):
 			arrived = true
 			for spawn in spawns:
 				spawn.spawning = true
-				spawn.spawn_limit = 10
+				spawn.spawn_limit = 5
 				spawn.spawn_interval = 0.5
 				spawn.initial_direction = Vector2(-1,0)
 				spawn.initial_duration = 7
